@@ -9,12 +9,13 @@ public func configure(_ app: Application) throws {
     // app.middleware.use(FileMiddleware(publicDirectory: app.directory.publicDirectory))
 
 //    app.databases.use(.postgres(
-//        hostname: Environment.get("DATABASE_HOST") ?? "localhost",
-//        port: Environment.get("DATABASE_PORT").flatMap(Int.init(_:)) ?? PostgresConfiguration.ianaPortNumber,
-//        username: Environment.get("DATABASE_USERNAME") ?? "vapor_username",
-//        password: Environment.get("DATABASE_PASSWORD") ?? "vapor_password",
-//        database: Environment.get("DATABASE_NAME") ?? "vapor_database"
+//        hostname: Environment.get("ec2-54-74-60-70.eu-west-1.compute.amazonaws.com") ?? "localhost",
+//        port: Environment.get("5432").flatMap(Int.init(_:)) ?? PostgresConfiguration.ianaPortNumber,
+//        username: Environment.get("zauqgldpaphejf") ?? "vapor_username",
+//        password: Environment.get("ed35eca6a89f580a2a53884e7b119c99bd9498ade0c8a12fc473a67a46250123") ?? "vapor_password",
+//        database: Environment.get("d55ukhpl7ldne3") ?? "vapor_database"
 //    ), as: .psql)
+    
     app.databases.use(.sqlite(.memory), as: .sqlite)
 
     app.migrations.add(CreateAcronym())
@@ -23,3 +24,5 @@ public func configure(_ app: Application) throws {
     
     try routes(app)
 }
+
+

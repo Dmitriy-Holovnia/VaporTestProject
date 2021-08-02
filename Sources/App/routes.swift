@@ -2,14 +2,15 @@ import Fluent
 import Vapor
 
 func routes(_ app: Application) throws {
-    app.get { req -> String in
-        return "It works!"
-    }
+    //MARK: Controllers
+    let acronymsController = AcronymsController()
     
-    app.get("hello") { req -> String in
-        return "Hello, world!"
-    }
+    try app.register(collection: acronymsController)
     
+    
+    
+    //MARK: CRUD for acronyms
+    /*
     // Create
     app.post("api", "acronyms") { request -> EventLoopFuture<Acronym> in
         let acronym = try request.content.decode(Acronym.self)
@@ -66,4 +67,5 @@ func routes(_ app: Application) throws {
         }
         .all()
     }
+    */
 }
